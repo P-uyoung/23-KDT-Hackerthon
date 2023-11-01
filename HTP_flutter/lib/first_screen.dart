@@ -1,8 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'test_standby.dart';
+
+
+final pictureLists = [
+  'assets/penguin.png',
+  'assets/penguin.png',
+  'assets/penguin.png',
+  'assets/penguin.png',
+];
+
+
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}): super(key: key);
+
+  Widget sliderWidget() {
+    return CarouselSlider(
+      options: CarouselOptions(height: 200),
+      items: [1,2,3,4,5].map((i) {
+        return Builder(
+          builder: (BuildContext context) {
+            return Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                decoration: BoxDecoration(
+                    color: Color(0xFF7B95C0),
+                ),
+                child: Text('text $i', style: TextStyle(fontSize: 16.0),)
+            );
+          },
+        );
+      }).toList(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,9 +125,7 @@ class FirstScreen extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
               ),
-              Row(
-                // 슬라이드 만들어야 함
-              )
+              sliderWidget(),
             ],
           )
         )

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'check_before_test.dart';
 import 'how_to_upload_picture.dart';
-
+import 'survey_before_analysis.dart';
 
 class TestStandbyScreen extends StatefulWidget {
   const TestStandbyScreen({Key? key}): super(key: key);
@@ -27,7 +27,7 @@ class TestStandbyScreenState extends State<TestStandbyScreen> {
   Widget showImage() {
     return Container(
       color: const Color(0xffd0cece),
-      width: 300,
+      width: 225,
       height: 300,
       child: Center(
         child: _image == null
@@ -43,7 +43,7 @@ class TestStandbyScreenState extends State<TestStandbyScreen> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFF597F67),
+          backgroundColor: Color(0xFF7B95C0),
           title: Text('검사 해보기'),
         ),
         body: Container(
@@ -64,7 +64,7 @@ class TestStandbyScreenState extends State<TestStandbyScreen> {
                         );
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.orangeAccent),
+                        backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF597F67)),
                       ),
                       child: Text('자세히')
                     ),
@@ -96,7 +96,7 @@ class TestStandbyScreenState extends State<TestStandbyScreen> {
                         );
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.orangeAccent),
+                        backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF597F67)),
                       ),
                       child: Text('자세히')
                     ),
@@ -156,6 +156,12 @@ class TestStandbyScreenState extends State<TestStandbyScreen> {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SurveyBeforeAnalysis()
+                            )
+                          );
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF597F67)),
